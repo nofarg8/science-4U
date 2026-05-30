@@ -1,0 +1,520 @@
+/* =========================================================
+   מעבדה קוסמית — Cosmic Lab
+   עמוד לומדות מדע אינטראקטיביות · RTL · Embed-safe
+   (no position:fixed / no position:sticky / no anchor-scroll)
+   ========================================================= */
+
+:root {
+  /* brand */
+  --green: #80ed99;
+  --orange: #ffa62b;
+  --purple: #7371fc;
+  --pink: #f4989c;
+
+  /* surfaces */
+  --bg-0: #06080f;
+  --bg-1: #0a0e1d;
+  --bg-2: #0e1430;
+  --card: #111733;
+  --card-2: #0c1228;
+
+  /* ink */
+  --ink: #eef1ff;
+  --muted: #9aa6d6;
+  --faint: #5b6699;
+  --line: rgba(160, 175, 255, 0.12);
+
+  /* tunable via Tweaks */
+  --accent: var(--purple);
+  --grid-min: 300px;
+  --motion: 1;          /* 0 = off, 1 = normal, 1.6 = lively */
+  --display-font: 'Secular One', sans-serif;
+  --body-font: 'Rubik', sans-serif;
+
+  --radius: 22px;
+  --maxw: 1240px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--ink);
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ---------- cosmic backdrop ---------- */
+.cosmos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 700px at 82% -8%, rgba(115, 113, 252, 0.30), transparent 60%),
+    radial-gradient(900px 620px at 8% 6%, rgba(128, 237, 153, 0.16), transparent 58%),
+    radial-gradient(1000px 760px at 50% 120%, rgba(244, 152, 156, 0.14), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0) 60%);
+}
+.cosmos canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* faint grid texture */
+.cosmos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(160, 175, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 175, 255, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 48px);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding: clamp(28px, 5vw, 70px) 0 clamp(28px, 4vw, 56px);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  padding: 7px 14px 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(6px);
+}
+.kicker .dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(128, 237, 153, 0.18);
+  animation: pulse calc(2.6s / var(--motion)) ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: var(--display-font);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin: 22px 0 0;
+  text-wrap: balance;
+}
+.hero h1 .grad {
+  background: linear-gradient(100deg, var(--green), var(--orange) 42%, var(--pink) 72%, var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p.lead {
+  margin: 20px 0 0;
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.hero .stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 30px;
+}
+.hero .stat { display: flex; flex-direction: column; gap: 2px; }
+.hero .stat b {
+  font-family: var(--display-font);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.hero .stat span { font-size: 0.82rem; color: var(--faint); }
+
+/* hero orbital figure */
+.orbits {
+  position: relative;
+  aspect-ratio: 1;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+.orbits .ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(160, 175, 255, 0.18);
+  border-radius: 50%;
+}
+.orbits .ring.r2 { inset: 16%; border-color: rgba(128, 237, 153, 0.22); }
+.orbits .ring.r3 { inset: 32%; border-color: rgba(255, 166, 43, 0.22); }
+.orbits .spin {
+  position: absolute; inset: 0;
+  animation: spin calc(26s / var(--motion)) linear infinite;
+}
+.orbits .spin.s2 { inset: 16%; animation-duration: calc(18s / var(--motion)); animation-direction: reverse; }
+.orbits .spin.s3 { inset: 32%; animation-duration: calc(12s / var(--motion)); }
+.orbits .electron {
+  position: absolute;
+  top: -7px; left: 50%;
+  width: 14px; height: 14px;
+  margin-inline-start: -7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 16px var(--green);
+}
+.orbits .spin.s2 .electron { background: var(--orange); box-shadow: 0 0 16px var(--orange); }
+.orbits .spin.s3 .electron { background: var(--pink); box-shadow: 0 0 16px var(--pink); }
+.orbits .nucleus {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, var(--purple) 55%, #4b49d6);
+  box-shadow: 0 0 50px rgba(115, 113, 252, 0.6), inset 0 0 14px rgba(255,255,255,0.4);
+  animation: bob calc(5s / var(--motion)) ease-in-out infinite;
+}
+.orbits .glyph {
+  position: absolute;
+  font-family: var(--display-font);
+  color: rgba(238, 241, 255, 0.5);
+  font-size: 1.3rem;
+  animation: drift calc(7s / var(--motion)) ease-in-out infinite;
+}
+.orbits .glyph.g1 { top: 6%; left: 10%; color: rgba(128,237,153,0.6); }
+.orbits .glyph.g2 { bottom: 8%; left: 4%; animation-delay: -2s; color: rgba(255,166,43,0.6); }
+.orbits .glyph.g3 { top: 12%; right: 6%; animation-delay: -4s; color: rgba(244,152,156,0.6); }
+.orbits .glyph.g4 { bottom: 14%; right: 10%; animation-delay: -1s; color: rgba(115,113,252,0.7); }
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: clamp(18px, 3vw, 30px) 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--display-font);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin: 0;
+}
+.section-head .count {
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+/* =========================================================
+   GRID + CARDS
+   ========================================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+  gap: clamp(18px, 2vw, 26px);
+}
+
+.card {
+  --c: var(--accent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(165deg, color-mix(in oklab, var(--c) 14%, var(--card)) 0%, var(--card-2) 60%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1),
+              border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.card.reveal { animation: cardIn 0.55s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card::before {  /* corner glow */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px 180px at 88% 0%, color-mix(in oklab, var(--c) 30%, transparent), transparent 70%);
+  opacity: 0.5;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: color-mix(in oklab, var(--c) 55%, transparent);
+  box-shadow: 0 22px 50px -22px rgba(0,0,0,0.8),
+              0 0 0 1px color-mix(in oklab, var(--c) 30%, transparent),
+              0 18px 60px -30px color-mix(in oklab, var(--c) 70%, transparent);
+}
+.card:hover::before { opacity: 1; }
+.card:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
+
+/* thumb 4:3 */
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 120% at 70% 15%, color-mix(in oklab, var(--c) 22%, transparent), transparent 60%),
+    linear-gradient(160deg, #0c1230, #070b18);
+  border-bottom: 1px solid var(--line);
+}
+.thumb .shot {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+}
+.card:hover .thumb .shot { transform: scale(1.05); }
+
+/* category tag (in body) */
+.cat {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--c) 72%, var(--ink));
+  padding: 5px 11px;
+  border-radius: 100px;
+  background: color-mix(in oklab, var(--c) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--c) 36%, transparent);
+}
+.cat .cdot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 8px var(--c);
+}
+
+.card .body {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 18px 20px 16px;
+  flex: 1;
+}
+.card .body h3 {
+  font-family: var(--display-font);
+  font-weight: 400;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.card .body p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.card .go {
+  margin-top: auto;
+  padding-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: color-mix(in oklab, var(--c) 75%, #fff);
+}
+.card .go .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.card:hover .go .arrow { transform: translateX(-5px); }
+.card .go .num {
+  margin-inline-start: auto;
+  font-family: var(--display-font);
+  font-size: 0.95rem;
+  color: var(--faint);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.foot {
+  margin-top: clamp(34px, 6vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+.foot .sig { display: inline-flex; align-items: center; gap: 10px; }
+.foot .sig b { color: var(--muted); font-weight: 600; }
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(128,237,153,0.18); }
+  50% { box-shadow: 0 0 0 8px rgba(128,237,153,0.05); }
+}
+@keyframes bob { 0%,100% { transform: translateY(-4px); } 50% { transform: translateY(4px); } }
+@keyframes drift {
+  0%,100% { transform: translate(0,0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translate(0,-10px) rotate(6deg); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+  .card { transition: none; }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; }
+  .orbits { width: min(78%, 320px); order: -1; }
+}
+@media (max-width: 520px) {
+  .hero .stats { gap: 18px; }
+  :root { --grid-min: 240px; }
+}
+
+/* =========================================================
+   LIGHT THEME (Tweak)
+   ========================================================= */
+body.light {
+  --bg-0: #f5f5ff;
+  --bg-1: #eef0fb;
+  --bg-2: #ffffff;
+  --card: #ffffff;
+  --card-2: #f3f4fc;
+  --ink: #1a1f3d;
+  --muted: #51597f;
+  --faint: #8b93b8;
+  --line: rgba(40, 50, 110, 0.12);
+}
+body.light .cosmos {
+  background:
+    radial-gradient(1100px 700px at 82% -8%, rgba(115, 113, 252, 0.18), transparent 60%),
+    radial-gradient(900px 620px at 8% 6%, rgba(128, 237, 153, 0.16), transparent 58%),
+    radial-gradient(1000px 760px at 50% 120%, rgba(244, 152, 156, 0.16), transparent 60%),
+    linear-gradient(180deg, #eef0fb, #f5f5ff 60%);
+}
+body.light .cosmos::after {
+  background-image:
+    linear-gradient(rgba(60, 70, 140, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 70, 140, 0.06) 1px, transparent 1px);
+}
+body.light .thumb {
+  background:
+    radial-gradient(120% 120% at 70% 15%, color-mix(in oklab, var(--c) 26%, transparent), transparent 60%),
+    linear-gradient(160deg, #eef1ff, #e3e7fb);
+  border-bottom-color: rgba(40, 50, 110, 0.1);
+}
+body.light .thumb::after {
+  background: linear-gradient(0deg, rgba(255,255,255,0.45), transparent 42%);
+}
+body.light .cat { background: color-mix(in oklab, var(--c) 16%, #fff); color: color-mix(in oklab, var(--c) 55%, var(--ink)); }
+body.light .kicker { background: rgba(255,255,255,0.6); }
+body.light .card:hover {
+  box-shadow: 0 22px 50px -26px rgba(40,50,110,0.45),
+              0 0 0 1px color-mix(in oklab, var(--c) 40%, transparent),
+              0 16px 50px -30px color-mix(in oklab, var(--c) 70%, transparent);
+}
+
+/* =========================================================
+   TWEAKS PANEL (design-time only; hidden in production)
+   ========================================================= */
+#tweaks {
+  position: fixed;
+  inset-block-end: 18px;
+  inset-inline-start: 18px;
+  z-index: 9999;
+  width: 268px;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: rgba(13, 18, 40, 0.92);
+  border: 1px solid rgba(160, 175, 255, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+  backdrop-filter: blur(16px);
+  font-family: var(--body-font);
+  color: #eef1ff;
+}
+#tweaks.show { display: flex; }
+#tweaks .tk-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+#tweaks .tk-head b { font-size: 0.95rem; font-weight: 600; }
+#tweaks .tk-x {
+  cursor: pointer; border: none; background: transparent;
+  color: #9aa6d6; font-size: 1.1rem; line-height: 1; padding: 2px 4px;
+}
+#tweaks .tk-row { display: flex; flex-direction: column; gap: 7px; }
+#tweaks .tk-row > label {
+  font-size: 0.76rem; color: #9aa6d6; font-weight: 500;
+  display: flex; justify-content: space-between;
+}
+#tweaks .seg { display: flex; gap: 6px; flex-wrap: wrap; }
+#tweaks .seg button {
+  flex: 1; min-width: 0; cursor: pointer;
+  font-family: inherit; font-size: 0.74rem; font-weight: 500;
+  padding: 7px 6px; border-radius: 9px;
+  border: 1px solid rgba(160,175,255,0.2);
+  background: rgba(255,255,255,0.04); color: #c7cef0;
+  transition: all 0.18s ease; white-space: nowrap;
+}
+#tweaks .seg button.on {
+  background: rgba(115,113,252,0.28);
+  border-color: rgba(115,113,252,0.7); color: #fff;
+}
+#tweaks .swatches { display: flex; gap: 8px; }
+#tweaks .swatches button {
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent; padding: 0;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+#tweaks .swatches button.on { border-color: #fff; transform: scale(1.12); }
+#tweaks input[type=range] { width: 100%; accent-color: var(--purple); }

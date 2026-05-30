@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>כלי הוראה ולמידה במדע וטכנולוגיה - נופר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@300;400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ================= COSMIC BACKDROP ================= -->
+<div class="cosmos" aria-hidden="true">
+  <canvas id="net"></canvas>
+</div>
+
+<main class="shell">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="hero-text">
+      <span class="kicker"><span class="dot"></span>המעבדה הדיגיטלית של נופר</span>
+      <h1>עולם המדע ה<span class="grad">אינטראקטיבי</span></h1>
+      <p class="lead">
+        אוסף של לומדות מדע חיות - סימולציות, חדרי בריחה, מצגות אינטראקטיביות
+        ומשחקים - שמזמינים תלמידות ותלמידים לחקור, לשחק וללמוד מדע אחרת.
+        כל לומדה היא תחנה בפני עצמה. בחרו תחנה והתחילו לחקור.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>12</b><span>לומדות אינטראקטיביות</span></div>
+        <div class="stat"><b>6</b><span>סוגי פעילות</span></div>
+        <div class="stat"><b>STEM</b><span>חקר · משחק · יצירה</span></div>
+      </div>
+    </div>
+
+    <div class="orbits" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="spin s1"><div class="electron"></div></div>
+      <div class="spin s2"><div class="electron"></div></div>
+      <div class="spin s3"><div class="electron"></div></div>
+      <div class="nucleus"></div>
+      <span class="glyph g1">H₂O</span>
+      <span class="glyph g2">∑</span>
+      <span class="glyph g3">⚛</span>
+      <span class="glyph g4">DNA</span>
+    </div>
+  </header>
+
+  <!-- ================= GRID ================= -->
+  <div class="section-head">
+    <h2>בחרו לומדה</h2>
+    <span class="count">12 תחנות · לחיצה פותחת בלשונית חדשה</span>
+  </div>
+
+  <section class="grid" id="grid">
+
+    <!-- 1 -->
+    <a class="card" style="--accent:#80ed99" href="https://www.sciencedu.online/stem-escaperoom" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/01.webp" alt="אתגר האטום" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>חדר בריחה</span>
+        <h3>אתגר האטום</h3>
+        <p>עזרו לד"ר מיא-לין לאזן את מחולל הפרוטונים שיצא מכלל שליטה! חדר בריחה STEM מלא חידות מדע.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">01</span></span>
+      </div>
+    </a>
+
+    <!-- 2 -->
+    <a class="card" style="--accent:#ffa62b" href="https://www.canva.com/design/DAHAo9DVJVs/t5P0ZWGNNsDzKUJ4w9Lu6w/watch" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/02.webp" alt="נשים במדע" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מצגת</span>
+        <h3>נשים במדע</h3>
+        <p>מסע מצולם בעקבות נשים פורצות דרך ששינו את פני המדע ואת ההיסטוריה.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">02</span></span>
+      </div>
+    </a>
+
+    <!-- 3 -->
+    <a class="card" style="--accent:#7371fc" href="https://red-moon.lovable.app" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/03.webp" alt="ירח אדום" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>לומדת STEM</span>
+        <h3>ירח אדום</h3>
+        <p>לומדה שחוקרת את תופעת "ירח דם" - ליקוי ירח מיוחד שבו הירח נצבע באדום.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">03</span></span>
+      </div>
+    </a>
+
+    <!-- 4 -->
+    <a class="card" style="--accent:#f4989c" href="https://biomim-games.base44.app" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/04.webp" alt="לשחק בביומימיקרי" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>משחקים</span>
+        <h3>לשחק בביומימיקרי</h3>
+        <p>פלטפורמת משחקים שמלמדת איך הטבע מעורר השראה להמצאות ולפתרונות חכמים.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">04</span></span>
+      </div>
+    </a>
+
+    <!-- 5 -->
+    <a class="card" style="--accent:#80ed99" href="https://www.sciencedu.online/paro-lab" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/05.webp" alt="המעבדה של פרעה" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>חקר מדעי</span>
+        <h3>המעבדה של פרעה</h3>
+        <p>חקר מדעי פעיל המלווה בניתוח ממצאים ובדיון עליהם באמצעות היועצים המלכותיים.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">05</span></span>
+      </div>
+    </a>
+
+    <!-- 6 -->
+    <a class="card" style="--accent:#ffa62b" href="https://newton-laws.lovable.app" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/06.webp" alt="חוקי ניוטון" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>סימולציה</span>
+        <h3>חוקי ניוטון</h3>
+        <p>לומדת סימולציות שמאפשרת להרגיש את הכוחות, התנועה והתאוצה, ולא רק לקרוא עליהם.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">06</span></span>
+      </div>
+    </a>
+
+    <!-- 7 -->
+    <a class="card" style="--accent:#7371fc" href="https://mendel-s-laws.vercel.app" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/07.webp" alt="המעבדה של מנדל" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>פעילות אינטראקטיבית</span>
+        <h3>המעבדה של מנדל</h3>
+        <p>ממשק פעיל לגילוי חוקי התורשה דרך הכלאות אינטראקטיביות וניבוי תכונות.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">07</span></span>
+      </div>
+    </a>
+
+    <!-- 8 -->
+    <a class="card" style="--accent:#f4989c" href="https://canva.link/holocaust-science" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/08.webp" alt="מדע במחשכים" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מצגת</span>
+        <h3>מדע במחשכים</h3>
+        <p>יוזמות מדעיות ומחקר בתקופת השואה. סיפור מרגש על ידע, תושייה ותקווה.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">08</span></span>
+      </div>
+    </a>
+
+    <!-- 9 -->
+    <a class="card" style="--accent:#80ed99" href="https://welcome-science-nofar.lovable.app" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/09.webp" alt="שרשרת מדעית כיתתית" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>פעילות אינטראקטיבית</span>
+        <h3>שרשרת מדעית כיתתית</h3>
+        <p>בונים יחד מפות מושגים וקשרים בין רעיונות מדעיים. חשיבה משותפת לכל הכיתה.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">09</span></span>
+      </div>
+    </a>
+
+    <!-- 10 -->
+    <a class="card" style="--accent:#ffa62b" href="https://www.sciencedu.online/vision-eye" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/10.webp" alt="מבנה העין ותהליך הראייה" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>סימולטור</span>
+        <h3>מבנה העין ותהליך הראייה</h3>
+        <p>סימולטור שמראה איך אור נכנס לעין, נשבר והופך לתמונה במוח, שלב אחר שלב.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">10</span></span>
+      </div>
+    </a>
+
+    <!-- 11 -->
+    <a class="card" style="--accent:#7371fc" href="https://nofar-teach.my.canva.site/the-cell" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/11.webp" alt="תאים שונים" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מצגת אינטראקטיבית</span>
+        <h3>תאים שונים - מבנה ותפקוד</h3>
+        <p>מצגת אינטראקטיבית על מבנה התא, האברונים השונים והתפקיד של כל אחד מהם.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">11</span></span>
+      </div>
+    </a>
+
+    <!-- 12 -->
+    <a class="card" style="--accent:#f4989c" href="https://nofar-teach.my.canva.site/atom-stem" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="images/12.webp" alt="מבנה האטום" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מצגת אינטראקטיבית</span>
+        <h3>מבנה האטום</h3>
+        <p>מצגת אינטראקטיבית שצוללת אל לב החומר: פרוטונים, נייטרונים ואלקטרונים.</p>
+        <span class="go"><span class="arrow">←</span>כניסה ללומדה<span class="num">12</span></span>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot">
+    <span class="sig"><span class="dot" style="width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block"></span><b>נופר</b> · כלי הוראה ולמידה במדע וטכנולוגיה</span>
+    <span>נבנה לחקר, לסקרנות וללמידה פעילה ✦</span>
+  </footer>
+
+</main>
+
+<!-- ================= TWEAKS PANEL (design-time only) ================= -->
+<aside id="tweaks" aria-label="Tweaks">
+  <div class="tk-head">
+    <b>Tweaks</b>
+    <button class="tk-x" id="tk-close" title="סגירה">✕</button>
+  </div>
+  <div class="tk-row">
+    <label>ערכת מצב</label>
+    <div class="seg" data-tk="light">
+      <button data-v="false" class="on">כהה</button>
+      <button data-v="true">בהיר</button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>צביעת כרטיסים</label>
+    <div class="swatches" data-tk="scheme">
+      <button data-v="multi" class="on" title="מגוון" style="background:conic-gradient(#80ed99,#ffa62b,#f4989c,#7371fc,#80ed99)"></button>
+      <button data-v="#80ed99" style="background:#80ed99"></button>
+      <button data-v="#ffa62b" style="background:#ffa62b"></button>
+      <button data-v="#7371fc" style="background:#7371fc"></button>
+      <button data-v="#f4989c" style="background:#f4989c"></button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>פונט כותרות</label>
+    <div class="seg" data-tk="displayFont">
+      <button data-v="Secular One" class="on">Secular</button>
+      <button data-v="Rubik">Rubik</button>
+      <button data-v="Heebo">Heebo</button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>עוצמת תנועה <span id="tk-motion-v">100%</span></label>
+    <input type="range" data-tk="motion" min="0" max="1.6" step="0.1" value="1">
+  </div>
+  <div class="tk-row">
+    <label>צפיפות רשת <span id="tk-grid-v">בינונית</span></label>
+    <input type="range" data-tk="gridMin" min="260" max="380" step="20" value="300">
+  </div>
+</aside>
+
+<!-- single editable defaults block (host rewrites this on disk) -->
+<script>
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "light": false,
+    "scheme": "multi",
+    "displayFont": "Heebo",
+    "motion": 1,
+    "gridMin": 300
+  }/*EDITMODE-END*/;
+</script>
+
+<!-- thumbnail for offline bundle splash -->
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0a0e1d"/>
+    <g transform="translate(50 50)" fill="none" stroke="#80ed99" stroke-width="3">
+      <ellipse rx="26" ry="11"/>
+      <ellipse rx="26" ry="11" transform="rotate(60)"/>
+      <ellipse rx="26" ry="11" transform="rotate(120)"/>
+    </g>
+    <circle cx="50" cy="50" r="5" fill="#7371fc"/>
+  </svg>
+</template>
+
+<script src="assets/app.js"></script>
+<script src="assets/tweaks.js"></script>
+</body>
+</html>
