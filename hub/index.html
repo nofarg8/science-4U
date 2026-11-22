@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תרגולים פתוחים - נופר גרגרוד</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@300;400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>.grid{grid-template-columns:repeat(4,1fr)!important}@media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:560px){.grid{grid-template-columns:1fr!important}}</style>
+</head>
+<body>
+
+<!-- ================= COSMIC BACKDROP ================= -->
+<div class="cosmos" aria-hidden="true">
+  <canvas id="net"></canvas>
+</div>
+
+<main class="shell">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="hero-text">
+      <span class="kicker"><span class="dot"></span>תרגולים פתוחים · במתנה</span>
+      <h1>בחרו <span class="grad">תחום</span> והתחילו לתרגל</h1>
+      <p class="lead">כל הכלים, המשחקים והלומדות הפתוחים שלי במקום אחד. בוחרים תחום, נכנסים, ומתחילים ללמוד אחרת.</p>
+      <div class="stats"><div class="stat"><b>4</b><span>תחומי דעת</span></div><div class="stat"><b>60+</b><span>כלים ופעילויות</span></div><div class="stat"><b>א-יב</b><span>לכל הרמות</span></div></div>
+    </div>
+    <div class="orbits" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="spin s1"><div class="electron"></div></div>
+      <div class="spin s2"><div class="electron"></div></div>
+      <div class="spin s3"><div class="electron"></div></div>
+      <div class="nucleus"></div>
+      <span class="glyph g1">אבג</span>
+      <span class="glyph g2">∑</span>
+      <span class="glyph g3">⚛</span>
+      <span class="glyph g4">★</span>
+    </div>
+  </header>
+
+  <div class="section-head">
+    <h2>בחרו תחום</h2>
+    <span class="count">4 תחומים · לחיצה פותחת את העמוד</span>
+  </div>
+
+  <section class="grid" id="grid">
+
+    <a class="card" style="--accent:#80ed99" href="https://www.sciencedu.online/science-4u" target="_top" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="../images/h1.webp" alt="תרגולים חווייתיים במדעים" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מדע וטכנולוגיה</span>
+        <h3>תרגולים חווייתיים במדעים</h3>
+        <p>לומדות, סימולציות, חדרי בריחה ומצגות אינטראקטיביות במדע וטכנולוגיה.</p>
+        <span class="go"><span class="arrow">←</span>לכל הכלים במדעים<span class="num">01</span></span>
+      </div>
+    </a>
+
+    <a class="card" style="--accent:#ffa62b" href="https://www.sciencedu.online/math4u" target="_top" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="../images/h2.webp" alt="תרגולים חווייתיים במתמטיקה" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>מתמטיקה</span>
+        <h3>תרגולים חווייתיים במתמטיקה</h3>
+        <p>משחקים, יחידות לימוד, בוטיות וסימולטורים - מהיסודי ועד התיכון.</p>
+        <span class="go"><span class="arrow">←</span>לכל הכלים במתמטיקה<span class="num">02</span></span>
+      </div>
+    </a>
+
+    <a class="card" style="--accent:#7371fc" href="https://www.sciencedu.online/language-4u" target="_top" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="../images/h3.webp" alt="תרגולים חווייתיים בשפה" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>שפה</span>
+        <h3>תרגולים חווייתיים בשפה</h3>
+        <p>אוצר מילים, שורשים ומשפחות מילים, חדר בריחה בעקבות שיר ועוד.</p>
+        <span class="go"><span class="arrow">←</span>לכל הכלים בשפה<span class="num">03</span></span>
+      </div>
+    </a>
+
+    <a class="card" style="--accent:#f4989c" href="https://www.sciencedu.online/more-topics" target="_top" rel="noopener">
+      <div class="thumb">
+        <img class="shot" src="../images/h4.webp" alt="נושאים נוספים" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="cat"><span class="cdot"></span>לכל תחומי הדעת</span>
+        <h3>נושאים נוספים</h3>
+        <p>חדרי בריחה, מחוללי משחקים וכלים שמתאימים לכל מקצוע ולכל כיתה.</p>
+        <span class="go"><span class="arrow">←</span>לכל הכלים<span class="num">04</span></span>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot">
+    <span class="sig"><span class="dot" style="width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block"></span><b>נופר</b> · תרגולים פתוחים</span>
+    <span>נבנה לחקר, לסקרנות וללמידה פעילה ✦</span>
+  </footer>
+
+</main>
+
+<!-- ================= TWEAKS PANEL (design-time only) ================= -->
+<aside id="tweaks" aria-label="Tweaks">
+  <div class="tk-head">
+    <b>Tweaks</b>
+    <button class="tk-x" id="tk-close" title="סגירה">✕</button>
+  </div>
+  <div class="tk-row">
+    <label>ערכת מצב</label>
+    <div class="seg" data-tk="light">
+      <button data-v="false" class="on">כהה</button>
+      <button data-v="true">בהיר</button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>צביעת כרטיסים</label>
+    <div class="swatches" data-tk="scheme">
+      <button data-v="multi" class="on" title="מגוון" style="background:conic-gradient(#80ed99,#ffa62b,#f4989c,#7371fc,#80ed99)"></button>
+      <button data-v="#80ed99" style="background:#80ed99"></button>
+      <button data-v="#ffa62b" style="background:#ffa62b"></button>
+      <button data-v="#7371fc" style="background:#7371fc"></button>
+      <button data-v="#f4989c" style="background:#f4989c"></button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>פונט כותרות</label>
+    <div class="seg" data-tk="displayFont">
+      <button data-v="Secular One" class="on">Secular</button>
+      <button data-v="Rubik">Rubik</button>
+      <button data-v="Heebo">Heebo</button>
+    </div>
+  </div>
+  <div class="tk-row">
+    <label>עוצמת תנועה <span id="tk-motion-v">100%</span></label>
+    <input type="range" data-tk="motion" min="0" max="1.6" step="0.1" value="1">
+  </div>
+  <div class="tk-row">
+    <label>צפיפות רשת <span id="tk-grid-v">בינונית</span></label>
+    <input type="range" data-tk="gridMin" min="260" max="380" step="20" value="300">
+  </div>
+</aside>
+
+<!-- single editable defaults block (host rewrites this on disk) -->
+<script>
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "light": false,
+    "scheme": "multi",
+    "displayFont": "Heebo",
+    "motion": 1,
+    "gridMin": 300
+  }/*EDITMODE-END*/;
+</script>
+
+<!-- thumbnail for offline bundle splash -->
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0a0e1d"/>
+    <g transform="translate(50 50)" fill="none" stroke="#80ed99" stroke-width="3">
+      <ellipse rx="26" ry="11"/>
+      <ellipse rx="26" ry="11" transform="rotate(60)"/>
+      <ellipse rx="26" ry="11" transform="rotate(120)"/>
+    </g>
+    <circle cx="50" cy="50" r="5" fill="#7371fc"/>
+  </svg>
+</template>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/tweaks.js"></script>
+</body>
+</html>
