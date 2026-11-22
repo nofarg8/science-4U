@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קצת עלי - נופר גרגרוד</title>
+<meta name="description" content="נופר גרגרוד - מפתחת טכנו-פדגוגית, מדריכה ומרצה לשילוב AI בחינוך.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+:root{--green:#80ed99;--orange:#ffa62b;--purple:#7371fc;--pink:#f4989c;--ink:#1d1740;--deep:#2e1760;--cream:#f9ecda;--soft:#f6f4ff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Heebo,Rubik,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.75;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.hero{background:var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:24px;align-items:end;padding-top:44px}
+.hero-text{padding-bottom:44px}
+.kicker{font-size:.95rem;font-weight:500;color:#5b5480;margin:0 0 4px}
+h1{font-family:"Secular One",Rubik,sans-serif;font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;margin:0 0 6px;color:#161228}
+.role{font-family:Rubik,sans-serif;font-weight:600;font-size:1.15rem;color:var(--deep);margin:0 0 16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;list-style:none}
+.tags li{background:#e3dcff;border:1px solid #cdc3ff;color:var(--deep);border-radius:8px;padding:3px 12px;font-size:.88rem;font-weight:500}
+.promise{font-style:italic;font-size:1.2rem;line-height:1.6;margin:0;max-width:26em;padding-bottom:14px;border-bottom:3px solid var(--orange);display:inline-block}
+.hero img{display:block;width:100%;max-width:400px;height:auto;margin-inline-start:auto}
+.intro{padding:40px 0 8px}
+.lead{font-family:Rubik,sans-serif;font-size:1.3rem;font-weight:500;line-height:1.6;color:var(--deep);margin:0 0 14px}
+section{padding:26px 0}
+h2{font-family:Rubik,sans-serif;font-size:1.7rem;font-weight:700;margin:0 0 18px;color:#161228;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c,var(--purple));flex:none}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:#fff;border:1px solid #e7e3f7;border-top:5px solid var(--c,var(--purple));border-radius:16px;padding:22px 22px 18px;box-shadow:0 6px 22px rgba(46,23,96,.06)}
+.card.wide{grid-column:1/-1}
+.card h3{font-family:Rubik,sans-serif;font-size:1.2rem;margin:0 0 8px;color:var(--deep)}
+.card p{margin:0 0 10px}
+ul.list{margin:0;padding:0;list-style:none}
+ul.list li{position:relative;padding-inline-start:22px;margin-bottom:8px}
+ul.list li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;width:9px;height:9px;border-radius:3px;background:var(--c,var(--purple))}
+.approach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.approach div{background:var(--soft);border-radius:14px;padding:16px 18px;border-inline-start:5px solid var(--c)}
+.approach .wide{grid-column:1/-1}
+.approach b{font-family:Rubik,sans-serif;color:var(--deep);display:block;margin-bottom:2px;font-size:1.08rem}
+.videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.video{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--deep);color:#fff;border-radius:16px;padding:18px 20px;transition:transform .15s}
+.video:hover{transform:translateY(-3px)}
+.play{flex:none;width:52px;height:52px;border-radius:50%;background:var(--orange);display:grid;place-items:center}
+.play::after{content:"";border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #161228;margin-inline-end:-4px}
+.video b{display:block;font-family:Rubik,sans-serif;font-size:1.05rem;line-height:1.4}
+.video span{font-size:.9rem;opacity:.8}
+.orgs{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.orgs li{border:1.5px solid #cdc3ff;border-radius:999px;padding:5px 16px;font-weight:500;background:#fff}
+.cta{background:var(--deep);color:#fff;border-radius:22px;padding:34px 28px;text-align:center;margin:20px 0 48px}
+.cta h2{color:#fff;justify-content:center;margin-bottom:8px}
+.cta h2::before{background:var(--green)}
+.cta p{margin:0 0 20px;font-size:1.1rem}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-family:Rubik,sans-serif;font-weight:600;border-radius:999px;padding:11px 26px;background:var(--green);color:#161228}
+.btn.alt{background:var(--orange)}
+@media(max-width:760px){
+  body{font-size:15.5px;line-height:1.62}
+  .wrap{padding:0 16px}
+  section{padding:16px 0}
+  .card{padding:16px 16px 12px}
+  .intro{padding:24px 0 4px}
+  .cta{margin:12px 0 24px;padding:24px 18px}
+  .hero .wrap{grid-template-columns:1fr;padding-top:28px;gap:0}
+  .hero-text{padding-bottom:18px}
+  .hero img{max-width:260px;margin:0 auto}
+  .cards,.approach,.videos{grid-template-columns:1fr}
+  .lead{font-size:1.15rem}
+  h2{font-size:1.45rem}
+}
+.mini{padding:30px 0 40px}
+.pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 22px}
+.pts div{background:var(--soft);border-radius:14px;padding:14px 16px;border-top:5px solid var(--c)}
+.pts b{font-family:Rubik,sans-serif;color:var(--deep);display:block;margin-bottom:2px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn.deep{background:var(--deep);color:#fff}
+.vlink{font-weight:500;color:var(--deep)}
+@media(max-width:760px){.pts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="kicker">מי אני</p>
+      <h1>נופר גרגרוד</h1>
+      <p class="role">מפתחת טכנו-פדגוגית, מדריכה ומרצה לשילוב AI בחינוך</p>
+      <ul class="tags"><li>נוירו-פדגוגיה</li><li>מומחית AI בחינוך</li><li>הוראת STEM</li><li>פיתוח מקצועי</li><li>טכנו-פדגוגיה</li></ul>
+      <p class="promise">אני כאן כדי ללמד אותך ליצור הוראה משמעותית ויצירתית באמצעים טכנולוגים.</p>
+    </div>
+    <img src="../images/nofar.webp" alt="נופר גרגרוד" width="570" height="683">
+  </div>
+</header>
+
+<main class="wrap mini">
+  <p class="lead">אני מחברת בין שלושה עולמות: איך המוח לומד, מה באמת קורה בכיתה, ואיך בונים את הכלי שעושה את ההבדל.</p>
+  <p>למדתי מדעי המוח בבית הספר סגול שבאוניברסיטת תל אביב, ובהמשך גם חינוך מדעי. התחלתי כמורה למתמטיקה ולמדעים, והיום אני מאפיינת ובונה בעצמי מערכות, אפליקציות וכלי למידה מבוססי AI, מכשירה ומלווה מורות ומורים ומובילה יוזמות STEM ו-AI ברמה הארצית.</p>
+  <div class="pts">
+    <div style="--c:var(--purple)"><b>פיתוח לגופים חינוכיים</b>יחידות לימוד דיגיטליות, קורסים, סימולציות, חדרי בריחה ומערכות שלמות לעבודה החינוכית.</div>
+    <div style="--c:var(--orange)"><b>הכשרות, ליווי והרצאות</b>האקדמיה של נופר ל-AI בחינוך: סדנאות ותוכניות ליווי שבהן השתתפו מעל 3,000 אנשי חינוך.</div>
+    <div style="--c:var(--green)"><b>הובלה מערכתית</b>מדריכת מדע וטכנולוגיה במינהל לחינוך התיישבותי, בדגש על STEM ושילוב AI בהוראה.</div>
+  </div>
+  <div class="row">
+    <a class="btn deep" href="https://www.sciencedu.online/about-me" target="_top">לקריאה נוספת עלי</a>
+    <a class="vlink" href="https://www.youtube.com/shorts/82K7TgX5OMc" target="_blank" rel="noopener">סרטון של מרכז פסג"ה ת"א על הפעילות שלי</a>
+    <a class="vlink" href="https://www.youtube.com/watch?v=ow5CGlPrgWw" target="_blank" rel="noopener">הרצאה במדעי המוח - "נוער מוכשר במתמטיקה"</a>
+  </div>
+</main>
+</body>
+</html>
