@@ -8,6 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@300;400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
+<style>
+.feature{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.2fr);gap:0;align-items:stretch;text-decoration:none;color:inherit;border-radius:26px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,rgba(115,113,252,.22),rgba(244,152,156,.12) 55%,rgba(255,166,43,.14));
+  border:1.5px solid rgba(128,237,153,.55);box-shadow:0 0 34px rgba(115,113,252,.35),inset 0 0 40px rgba(115,113,252,.12);transition:transform .2s,box-shadow .2s}
+.feature:hover{transform:translateY(-4px);box-shadow:0 0 48px rgba(128,237,153,.4),inset 0 0 40px rgba(115,113,252,.16)}
+.feature-pic{background:#0b0822;display:flex}
+.feature-pic img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+.feature-body{padding:34px 38px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.feature-tag{align-self:flex-start;font-size:.85rem;font-weight:700;padding:6px 14px;border-radius:999px;background:rgba(128,237,153,.16);border:1px solid rgba(128,237,153,.6);color:#b9ffcb}
+.feature h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0;line-height:1.15;background:linear-gradient(90deg,#80ed99,#ffa62b,#f4989c,#7371fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feature p{margin:0;font-size:1.08rem;opacity:.9;line-height:1.6}
+.feature ul{margin:2px 0 6px;padding:0;list-style:none;display:grid;gap:7px}
+.feature li{position:relative;padding-inline-start:24px;opacity:.92}
+.feature li::before{content:"✦";position:absolute;inset-inline-start:0;color:#ffa62b}
+.feature-cta{align-self:flex-start;margin-top:6px;padding:13px 26px;border-radius:14px;font-weight:700;color:#0a0e1d;background:linear-gradient(120deg,#80ed99,#ffa62b);box-shadow:0 8px 22px rgba(255,166,43,.35)}
+@media(max-width:760px){.feature{grid-template-columns:1fr}.feature-body{padding:24px 22px}.feature-pic img{min-height:200px}}
+</style>
 </head>
 <body>
 
@@ -174,19 +191,21 @@
     <span class="count">תוכנית מלאה · לחיצה פותחת את עמוד הערכה</span>
   </div>
 
-  <section class="grid">
-    <a class="card" style="--accent:#7371fc" href="https://www.sciencedu.online/accelerator-landing" target="_top" rel="noopener">
-      <div class="thumb">
-        <img class="shot" src="../images/tools/accelerator.webp" alt="המאיץ הלשוני" loading="lazy">
-      </div>
-      <div class="body">
-        <span class="cat"><span class="cdot"></span>ערכה מלאה · למורה ולכיתה</span>
-        <h3>המאיץ הלשוני</h3>
-        <p>מערכת הוראה הוליסטית לחיזוק העברית: סולם של טקסטים מדורגים, מחוון צמיחה אישית, רכיבים פיזיים ודיגיטליים ומשחקים אינטראקטיביים.</p>
-        <span class="go"><span class="arrow">←</span>לפרטים על המאיץ<span class="num">★</span></span>
-      </div>
-    </a>
-  </section>
+  <a class="feature" href="https://www.sciencedu.online/accelerator-landing" target="_top" rel="noopener">
+    <div class="feature-pic"><img src="../images/tools/accelerator.webp" alt="המאיץ הלשוני" loading="lazy"></div>
+    <div class="feature-body">
+      <span class="feature-tag">ערכה מלאה · למורה ולכיתה</span>
+      <h3>המאיץ הלשוני</h3>
+      <p>מערכת הוראה הוליסטית לחיזוק העברית, שעובדת על כל רבדי השפה.</p>
+      <ul>
+        <li>סולם של טקסטים מדורגים</li>
+        <li>מחוון צמיחה אישית לכל תלמיד</li>
+        <li>רכיבים פיזיים ודיגיטליים</li>
+        <li>משחקים אינטראקטיביים, כולל שעשועון המילים</li>
+      </ul>
+      <span class="feature-cta">לפרטים על המאיץ <span class="arrow">←</span></span>
+    </div>
+  </a>
 
   <!-- ================= FOOTER ================= -->
   <footer class="foot">
