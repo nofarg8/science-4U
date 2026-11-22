@@ -610,3 +610,14 @@ body.light .card:hover {
 }
 #tweaks .swatches button.on { border-color: #fff; transform: scale(1.12); }
 #tweaks input[type=range] { width: 100%; accent-color: var(--purple); }
+
+/* ===== compact mobile layout (keeps embedded pages short) ===== */
+@media (max-width: 560px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card .body { padding: 10px 11px 12px; }
+  .card .body p { display: none; }
+  .card .body h3 { font-size: 0.98rem; line-height: 1.25; margin: 6px 0 8px; }
+  .card .cat { font-size: 0.66rem; padding: 3px 8px; max-width: 100%; white-space: normal; }
+  .card .go { font-size: 0.8rem; }
+  .card .go .num { display: none; }
+}
