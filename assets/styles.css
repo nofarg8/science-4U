@@ -628,7 +628,7 @@ body.light .card:hover {
 .group-banner {
   --c: #25d366;
   display: grid;
-  grid-template-columns: minmax(160px, 260px) minmax(0, 1fr);
+  grid-template-columns: minmax(140px, 196px) minmax(0, 1fr);
   align-items: center;
   gap: clamp(16px, 2.4vw, 30px);
   padding: clamp(14px, 1.8vw, 20px);
@@ -672,3 +672,6 @@ body.light .card:hover {
   .group-body p { font-size: 0.86rem; line-height: 1.5; }
   .group-cta { display: inline-flex; padding: 7px 14px; font-size: 0.85rem; white-space: nowrap; margin-top: 2px; }
 }
+
+/* embedded pages: the site footer lives in Wix, so hide the decorative one */
+footer.foot { display: none; }
