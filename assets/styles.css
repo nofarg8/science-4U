@@ -462,6 +462,53 @@ body {
   color: var(--faint);
 }
 
+/* card with a second link (main link stretches over the whole card) */
+.card-dual .card-main { text-decoration: none; }
+.card-dual .card-main::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card-dual:focus-within { outline: 2px solid var(--c); outline-offset: 3px; }
+.card-dual .card-main:focus-visible { outline: none; }
+.device-note {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--faint);
+}
+.device-note::before { content: "🖥 "; }
+.guide-link {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in oklab, var(--c) 45%, transparent);
+  background: color-mix(in oklab, var(--c) 10%, transparent);
+  transition: background 0.25s ease;
+}
+.guide-link:hover { background: color-mix(in oklab, var(--c) 24%, transparent); }
+.guide-link .play { font-size: 0.65rem; color: var(--c); }
+.card-dual .go-row {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.card-dual .go-row .go { margin-top: 0; padding-top: 0; }
+.card-dual .go-row .guide-link { white-space: nowrap; }
+@media (max-width: 640px) {
+  .device-note { font-size: 0.68rem; }
+  .card-dual .go-row { padding-top: 6px; gap: 6px; }
+  .guide-link { font-size: 0.7rem; padding: 3px 9px; gap: 5px; }
+}
+
 /* =========================================================
    FOOTER
    ========================================================= */
